@@ -29,7 +29,10 @@ function* getMovies() {
 
 function* getDetails(event) {
     try {
-        const movies = yield axios.get(`/movies/${event.payload}`);
+        const movies = yield axios.get(`/details`, {
+            params: {
+              id: event.payload
+            }}); //, {data: event.payload}
         yield put({ type: "SET_MOVIE_DETAILS", payload: movies.data });
     } catch (error) {
         console.log('Error in getDetails', error);
