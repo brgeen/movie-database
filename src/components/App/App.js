@@ -11,6 +11,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+        {this.props.reduxState.movies.map(movie =>
+
+          <div key={movie.id} className="movie-container">
+            <div className="movie-title-image-container">
+              <h3>{movie.title}</h3>
+              <img src={movie.poster} />
+            </div>
+            <div className="movie-description-container"></div>
+            <p>{movie.description}</p>
+          </div>
+        )}
+
+
         {JSON.stringify(this.props.reduxState.movies, null, 2)}
       </div>
     );
