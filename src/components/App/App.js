@@ -5,6 +5,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import Details from '../Details/Details'
 import Movies from '../Movies/Movies'
 
+
 class App extends Component {
 
 

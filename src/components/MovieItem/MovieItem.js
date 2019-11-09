@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
+
+
+
 
 class MovieItem extends Component {
 
     handleClick = () => {
         this.props.dispatch({ type: "GET_MOVIE_DETAILS", payload: this.props.movie.id })
+        this.props.history.push('/details')
     }
     render() {
         return (
@@ -21,4 +26,4 @@ class MovieItem extends Component {
     }
 }
 
-export default connect()(MovieItem);
+export default withRouter(connect()(MovieItem));
