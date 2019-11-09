@@ -1,33 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
-import MovieItem from '../MovieItem/MovieItem'
+import { HashRouter as Router, Route } from 'react-router-dom';
+import Details from '../Details/Details'
+import Movies from '../Movies/Movies'
 
 class App extends Component {
 
-  componentDidMount() {
-    this.props.dispatch({ type: 'GET_MOVIES' })
-  }
-  // Renders the entire app on the DOM
+
+
   render() {
     return (
-      <div className="App">
+      <Router>
+        <div className="App">
 
-        {this.props.reduxState.movies.map(movie =>
-          <div key={movie.id} className="movie-container">
-            <MovieItem movie={movie} />
-          </div>
-        )}
-
-
-        {JSON.stringify(this.props.reduxState.movies, null, 2)}
-      </div>
+          <Route path="/" exact component={Movies} />
+          <Route path="/details" component={Details} />
+        </div>
+      </Router>
     );
   }
 }
 
-const mapStateToProps = reduxState => ({
-  reduxState,
-});
-
-export default connect(mapStateToProps)(App);
+export default connect()(App);

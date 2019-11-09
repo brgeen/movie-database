@@ -31,8 +31,9 @@ function* getDetails(event) {
     try {
         const movies = yield axios.get(`/details`, {
             params: {
-              id: event.payload
-            }}); //, {data: event.payload}
+                id: event.payload
+            }
+        }); //, {data: event.payload}
         yield put({ type: "SET_MOVIE_DETAILS", payload: movies.data });
     } catch (error) {
         console.log('Error in getDetails', error);
@@ -86,6 +87,6 @@ const storeInstance = createStore(
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>,
     document.getElementById('root'));
 registerServiceWorker();
