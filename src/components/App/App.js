@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
+import MovieItem from '../MovieItem/MovieItem'
 
 class App extends Component {
 
@@ -13,14 +14,8 @@ class App extends Component {
       <div className="App">
 
         {this.props.reduxState.movies.map(movie =>
-
           <div key={movie.id} className="movie-container">
-            <div className="movie-title-image-container">
-              <h3>{movie.title}</h3>
-              <img src={movie.poster} />
-            </div>
-            <div className="movie-description-container"></div>
-            <p>{movie.description}</p>
+            <MovieItem movie={movie} />
           </div>
         )}
 
