@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-class Details extends Component {
+class Edit extends Component {
 
 
     render() {
         return (
             <div className="App">
-                <Link to="/"><button>Back To List</button></Link>
-                <Link to="/edit"><button>Edit Movie</button></Link>
+                <h1>EDIT</h1>
+                <Link to="/details"><button>Cancel</button></Link>
                 {this.props.reduxState.movieDetails.map(movie =>
                     <div key={movie.id} className="movie-container">
                         <div className="movie-title-image-container">
@@ -35,4 +35,4 @@ const mapStateToProps = reduxState => ({
     reduxState,
 });
 
-export default connect(mapStateToProps)(Details);
+export default connect(mapStateToProps)(Edit);
