@@ -15,6 +15,7 @@ import { takeEvery, put } from 'redux-saga/effects';
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies)
     yield takeEvery('GET_MOVIE_DETAILS', getDetails)
+    yield takeEvery('GET_MOVIE_GENRES', getGenres)
 }
 
 function* getMovies() {
@@ -37,6 +38,20 @@ function* getDetails(event) {
         yield put({ type: "SET_MOVIE_DETAILS", payload: movies.data });
     } catch (error) {
         console.log('Error in getDetails', error);
+    }
+
+}
+
+function* getGenres(event) {
+    try {
+        const movies = yield axios.get(`/genres`, {
+            params: {
+                id: event.payload
+            }
+        }); //, {data: event.payload}
+        yield put({ type: "SET_MOVIE_GENRES", payload: movies.data });
+    } catch (error) {
+        console.log('Error in getGenres', error);
     }
 
 }
@@ -64,9 +79,9 @@ const movieDetails = (state = [], action) => {
 }
 
 // Used to store the movie genres
-const genres = (state = [], action) => {
+const movieGenres = (state = [], action) => {
     switch (action.type) {
-        case 'SET_GENRES':
+        case 'SET_MOVIE_GENRES':
             return action.payload;
         default:
             return state;
@@ -77,7 +92,7 @@ const genres = (state = [], action) => {
 const storeInstance = createStore(
     combineReducers({
         movies,
-        genres,
+        movieGenres,
         movieDetails,
     }),
     // Add sagaMiddleware to our store

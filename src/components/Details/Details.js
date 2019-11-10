@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Details extends Component {
 
+
     render() {
         return (
             <div className="App">
@@ -19,6 +20,11 @@ class Details extends Component {
                         </div>
                     </div>
                 )}
+                <ul>
+                {this.props.reduxState.movieGenres.map((genre, i) =>
+                    <li key={i}>{genre.name}</li>
+                    )}
+                    </ul>
             </div>
         );
     }

@@ -9,6 +9,7 @@ class MovieItem extends Component {
 
     handleClick = () => {
         this.props.dispatch({ type: "GET_MOVIE_DETAILS", payload: this.props.movie.id })
+        this.props.dispatch({ type: "GET_MOVIE_GENRES", payload: this.props.movie.id })
         this.props.history.push('/details')
     }
     render() {
