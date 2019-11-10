@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class Edit extends Component {
+
+    handleSubmit = () => {
+        
+        axios.put(`/edit`, {
+            data: {
+                id: 1,
+                title: 'Avatar', 
+                description: 'Movie about blue people and stuff',
+                
+            }
+        });
+
+    }
 
 
     render() {
@@ -10,10 +24,13 @@ class Edit extends Component {
             <div className="App">
                 <h1>EDIT</h1>
                 <Link to="/details"><button>Cancel</button></Link>
+                <button onClick={() => this.handleSubmit() }>Submit</button>
                 {this.props.reduxState.movieDetails.map(movie =>
                     <div key={movie.id} className="movie-container">
                         <div className="movie-title-image-container">
-                            <h3>{movie.title}</h3>
+
+                            <input></input>
+                            
                             <img src={movie.poster} alt={movie.title} />
                         </div>
                         <div className="movie-description-container">

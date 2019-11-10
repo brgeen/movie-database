@@ -11,7 +11,7 @@ app.use(express.static('build'));
 /** ---------- ROUTES ---------- **/
 
 app.get('/movies', (req, res) => {
-    const queryText = 'SELECT * FROM movies';
+    const queryText = 'SELECT * FROM movies ORDER BY "title" ASC';
     pool.query(queryText)
         .then((result) => {
             res.send(result.rows);
@@ -23,7 +23,6 @@ app.get('/movies', (req, res) => {
 });
 
 app.get('/details', (req, res) => {
-    console.log('in server /details', req.query.id);
 
     const queryText = `SELECT * FROM movies WHERE id=${req.query.id};`;
     pool.query(queryText)
@@ -37,7 +36,6 @@ app.get('/details', (req, res) => {
 });
 
 app.get('/genres', (req, res) => {
-    console.log('in server /genres', req.query.id);
 
     const queryText = `SELECT "name" FROM "movies" 
     JOIN "movie_genres" ON movies.id = movie_genres.movie_id
@@ -49,6 +47,22 @@ app.get('/genres', (req, res) => {
         })
         .catch((error) => {
             console.log('Error in GET for genres', error);
+            res.sendStatus(500);
+        });
+});
+
+app.put('/edit', (req, res) => {
+
+    const queryText = `UPDATE "movies"
+    SET "title" = '${req.body.data.title}', "description" = '${req.body.data.description}'
+    WHERE "id"=${req.body.data.id}`;
+
+    pool.query(queryText)
+        .then(() => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log('Error in EDIT movies', error);
             res.sendStatus(500);
         });
 });
