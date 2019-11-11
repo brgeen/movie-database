@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 class Edit extends Component {
 
@@ -51,8 +50,10 @@ class Edit extends Component {
                                 value={this.state.description}>
                             </textarea>
                         </div>
+                        <div>
                         <Link to='/'><button onClick={() => this.handleSubmit()}>Submit</button></Link>
                         <Link to="/details"><button>Cancel</button></Link>
+                        </div>
                     </div>
                 )}
             </div>
