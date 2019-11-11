@@ -69,6 +69,7 @@ input {
 
 textarea {
   text-align: left;
-  outline: none;
+  border: 1px solid lightgray;
+  padding: 5px;
   font-size: 13px;
 }
