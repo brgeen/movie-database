@@ -5,9 +5,7 @@ import axios from 'axios';
 
 class Edit extends Component {
 
-
-
-    state = {
+    state = { // creating local state for handle event changes, and later sending to Saga for Axios PUT
         id: this.props.reduxState.movieDetails[0].id,
         title: this.props.reduxState.movieDetails[0].title,
         description: this.props.reduxState.movieDetails[0].description,
@@ -26,25 +24,17 @@ class Edit extends Component {
     }
 
     handleSubmit = () => {
-
         this.props.dispatch({ type: "EDIT_MOVIE", payload: this.state })
-
-
     }
 
-
     render() {
-
-
         return (
             <div className="App">
-
-                {this.props.reduxState.movieDetails.map(movie =>
+                {this.props.reduxState.movieDetails.map(movie => // mapping movie details to the DOM
                     <div key={movie.id} className="edit-movie-container">
                         <div className="movie-title-image-container">
                             <img src={movie.poster} alt={movie.title} />
                         </div>
-
                         <div>
                             <input
                                 onChange={(event) => this.handleTitleInput(event)}
@@ -63,12 +53,8 @@ class Edit extends Component {
                         </div>
                         <Link to='/'><button onClick={() => this.handleSubmit()}>Submit</button></Link>
                         <Link to="/details"><button>Cancel</button></Link>
-
-
-
                     </div>
                 )}
-
             </div>
         );
     }

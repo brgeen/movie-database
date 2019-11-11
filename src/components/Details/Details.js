@@ -4,31 +4,27 @@ import { Link } from 'react-router-dom';
 
 class Details extends Component {
 
-
     render() {
         return (
             <div className="App">
-
-                {this.props.reduxState.movieDetails.map(movie =>
+                {this.props.reduxState.movieDetails.map(movie => // mapping movie details information
                     <div key={movie.id} className="movie-container">
                         <div className="movie-title-image-container">
                             <h2>{movie.title}</h2>
                             <img src={movie.poster} alt={movie.title} />
                             <ul>
-                                {this.props.reduxState.movieGenres.map((genre, i) =>
+                                {this.props.reduxState.movieGenres.map((genre, i) => // mapping movie genres information
                                     <li key={i}>{genre.name}</li>
                                 )}
                             </ul>
                         </div>
                         <div className="movie-description-container">
                             <p>{movie.description}</p>
-                            
                             <Link to="/"><button>Back To List</button></Link>
                             <Link to="/edit"><button>Edit Movie</button></Link>
                         </div>
                     </div>
                 )}
-
             </div>
         );
     }

@@ -26,7 +26,6 @@ function* getMovies() {
     } catch (error) {
         console.log('Error in getMovies', error);
     }
-
 }
 
 function* getDetails(event) {
@@ -35,12 +34,11 @@ function* getDetails(event) {
             params: {
                 id: event.payload
             }
-        }); //, {data: event.payload}
+        });
         yield put({ type: "SET_MOVIE_DETAILS", payload: movies.data });
     } catch (error) {
         console.log('Error in getDetails', error);
     }
-
 }
 
 function* getGenres(event) {
@@ -49,12 +47,11 @@ function* getGenres(event) {
             params: {
                 id: event.payload
             }
-        }); //, {data: event.payload}
+        });
         yield put({ type: "SET_MOVIE_GENRES", payload: movies.data });
     } catch (error) {
         console.log('Error in getGenres', error);
     }
-
 }
 
 function* editMovie(event) {
@@ -70,11 +67,7 @@ function* editMovie(event) {
 
     } catch (error) {
         console.log('Error in editMovie', error);
-
     }
-
-
-
 }
 
 

@@ -6,11 +6,7 @@ import Details from '../Details/Details';
 import Movies from '../Movies/Movies';
 import Edit from '../Edit/Edit';
 
-
 class App extends Component {
-
-
-
   render() {
     return (
       <Router>

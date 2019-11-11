@@ -23,7 +23,6 @@ app.get('/movies', (req, res) => {
 });
 
 app.get('/details', (req, res) => {
-
     const queryText = `SELECT * FROM movies WHERE id=${req.query.id};`;
     pool.query(queryText)
         .then((result) => {
@@ -36,7 +35,6 @@ app.get('/details', (req, res) => {
 });
 
 app.get('/genres', (req, res) => {
-
     const queryText = `SELECT "name" FROM "movies" 
     JOIN "movie_genres" ON movies.id = movie_genres.movie_id
     JOIN "genres" ON movie_genres.genre_id = genres.id
@@ -52,8 +50,6 @@ app.get('/genres', (req, res) => {
 });
 
 app.post('/edit', (req, res) => {
-    console.log(req.body);
-
     pool.query(`UPDATE "movies"
     SET "title" =$1, "description" =$2
     WHERE "id"=$3;`, [req.body.data.title, req.body.data.description, req.body.data.id])
