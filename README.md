@@ -1,9 +1,42 @@
-# Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+# Media Database
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+This is a database template for any media related items. It uses a simple flexible grid system that allows the user to navigate the database with ease. Clicking on movie poster allows users to view details and genre listings about the movie. From this details page users are also able to edit the movie title and description which updates the database for all users.
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/github-finalization-assignment).# movie-sagas
+
+## Technologies Used
+
+- React
+- React Redux
+- Redux Sagas
+- Javascript
+- Node
+- Express
+- Axios
+- HTML
+- CSS
+
+## Project Image
+
+
+![Alt text](public/images/movie-database-screenshot.png "Project Image") 
+
+
+## Installation
+
+- Download from GitHub
+- https://github.com/brgeen/movie-sagas
+- Create the tables and insert the data in the databse.sql file
+- npm install
+- open your terminal
+- npm run server
+- cmd + t for a new terminal tab
+- npm run client
+
+
+## Contact
+
+- Brooks Geenen
+- brgeen@gmail.com
+
