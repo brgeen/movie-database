@@ -26,14 +26,16 @@ class Edit extends Component {
     }
 
     handleSubmit = () => {
+        
 
-        axios.put(`/edit`, {
+        axios.post(`/edit`, {
             data: {
                 id: this.state.id,
                 title: this.state.title,
                 description: this.state.description,
             }
         });
+        this.props.dispatch({ type: 'GET_MOVIES' })
 
     }
 
@@ -43,20 +45,21 @@ class Edit extends Component {
 
         return (
             <div className="App">
-                <h1>EDIT</h1>
-                <Link to="/details"><button>Cancel</button></Link>
-                <Link to='/'><button onClick={() => this.handleSubmit()}>Submit</button></Link>
+                
                 {this.props.reduxState.movieDetails.map(movie =>
-                    <div key={movie.id} className="movie-container">
+                    <div key={movie.id} className="edit-movie-container">
+                        <div className="movie-title-image-container">
                         <img src={movie.poster} alt={movie.title} />
+                        </div>
 
-
+<div>
                         <input
                             onChange={(event) => this.handleTitleInput(event)}
                             value={this.state.title}
                             type="text">
                         </input>
-
+                        </div>
+                        <div>
                         <textarea
                             rows="10"
                             cols="80"
@@ -64,8 +67,10 @@ class Edit extends Component {
                             onChange={(event) => this.handleDescriptionInput(event)}
                             value={this.state.description}>
                         </textarea>
-
-
+                        </div>
+                        <Link to='/'><button onClick={() => this.handleSubmit()}>Submit</button></Link>
+                        <Link to="/details"><button>Cancel</button></Link>
+                
 
 
                     </div>

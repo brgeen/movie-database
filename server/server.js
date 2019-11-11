@@ -51,13 +51,12 @@ app.get('/genres', (req, res) => {
         });
 });
 
-app.put('/edit', (req, res) => {
+app.post('/edit', (req, res) => {
+    console.log(req.body);
 
-    const queryText = `UPDATE "movies"
-    SET "title" = '${req.body.data.title}', "description" = '${req.body.data.description}'
-    WHERE "id"=${req.body.data.id}`;
-
-    pool.query(queryText)
+    pool.query(`UPDATE "movies"
+    SET "title" =$1, "description" =$2
+    WHERE "id"=$3;`, [req.body.data.title, req.body.data.description, req.body.data.id])
         .then(() => {
             res.sendStatus(200);
         })

@@ -16,7 +16,7 @@ class MovieItem extends Component {
         return (
             <>
                 <div className="movie-title-image-container">
-                    <h3>{this.props.movie.title}</h3>
+                    <h2>{this.props.movie.title}</h2>
                     <img src={this.props.movie.poster} alt={this.props.movie.title} onClick={() => this.handleClick()} />
                 </div>
                 <div className="movie-description-container">
