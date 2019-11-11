@@ -20,7 +20,7 @@ class MovieItem extends Component {
                     <img src={this.props.movie.poster} alt={this.props.movie.title} onClick={() => this.handleClick()} />
                 </div>
                 <div className="movie-description-container">
-                <h2>{this.props.movie.title}</h2>
+                    <h2>{this.props.movie.title}</h2>
                     <p>{this.props.movie.description}</p>
                 </div>
             </>

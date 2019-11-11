@@ -1,6 +1,11 @@
 .App {
   text-align: center;
   font-family: 'Roboto Condensed', sans-serif;
+  
+}
+
+body {
+  background-color: rgba(255, 252, 248, 0.90);
 }
 
 h2 {
@@ -12,6 +17,10 @@ h2 {
   padding: 20px;
 }
 
+img {
+  box-shadow: 1px 1px 10px 1px #8888888a;
+}
+
 .edit-movie-container {
   display: flex;
   flex-direction: column;
@@ -19,9 +28,8 @@ h2 {
   padding: 15px;
 }
 
-
 .movie-description-container {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   align-content: flex-end;
   justify-content: center;
@@ -39,8 +47,8 @@ button {
   padding: 4px;
   padding-left: 10px;
   padding-right: 10px;
-  margin: 5px;;
-  
+  margin: 5px;
+  ;
   font-size: 12px;
   background-color: rgba(0, 0, 0, 0);
   outline: none;
