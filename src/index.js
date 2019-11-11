@@ -58,15 +58,22 @@ function* getGenres(event) {
 }
 
 function* editMovie(event) {
+    try {
+        yield axios.post(`/edit`, {
+            data: {
+                id: event.payload.id,
+                title: event.payload.title,
+                description: event.payload.description,
+            }
+        });
+        yield put({ type: "GET_MOVIES" });
 
-    yield axios.post(`/edit`, {
-        data: {
-            id: event.payload.id,
-            title: event.payload.title,
-            description: event.payload.description,
-        }
-    });
-    yield put({ type: "GET_MOVIES" });
+    } catch (error) {
+        console.log('Error in editMovie', error);
+
+    }
+
+
 
 }
 
