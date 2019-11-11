@@ -55,3 +55,44 @@ VALUES
 ('Science Fiction'),
 ('Space-Opera'),
 ('Superhero');
+
+
+-- junction table
+
+CREATE TABLE "movie_genres" (
+  "movie_id" INT NOT NULL,
+  "genre_id" INT NOT NULL
+ 
+);
+
+-- insert info into junction table
+
+INSERT INTO "movie_genres" ("movie_id", "genre_id")
+VALUES
+(1, 1), 
+(1, 2), 
+(1, 6),
+(1, 7),
+(1, 8),
+(1, 11),
+(2, 2),
+(2, 6),
+(2, 10),
+(3, 7),
+(3, 13),
+(4, 2),
+(5, 6),
+(6, 8),
+(7, 1),
+(7, 6),
+(8, 1),
+(8, 6),
+(8, 7),
+(9, 2),
+(9, 4),
+(10, 7),
+(10, 11),
+(11, 6),
+(13, 6),
+(13, 10),
+(14, 2);
