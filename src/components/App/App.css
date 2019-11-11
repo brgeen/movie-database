@@ -9,7 +9,7 @@ h2 {
 
 .movie-container {
   display: flex;
-  margin-left: 20px;
+  padding: 20px;
 }
 
 .edit-movie-container {
@@ -25,11 +25,42 @@ h2 {
   flex-direction: column;
   align-content: flex-end;
   justify-content: center;
-  text-align: left;
+  text-align: start;
   padding: 10px;
+  margin-left: 10px;
 }
 
 ul {
   list-style: none;
   padding: 0px;
+}
+
+button {
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 5px;;
+  
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  border: solid;
+  border-width: thin;
+  border-radius: 5px;
+}
+
+input {
+  width: 150px;
+  height: 20px;
+  outline: none;
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+textarea {
+  text-align: left;
+  outline: none;
+  font-size: 13px;
 }
