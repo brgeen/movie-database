@@ -16,6 +16,7 @@ function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies)
     yield takeEvery('GET_MOVIE_DETAILS', getDetails)
     yield takeEvery('GET_MOVIE_GENRES', getGenres)
+    yield takeEvery('EDIT_MOVIE', editMovie)
 }
 
 function* getMovies() {
@@ -55,6 +56,20 @@ function* getGenres(event) {
     }
 
 }
+
+function* editMovie(event) {
+
+    yield axios.post(`/edit`, {
+        data: {
+            id: event.payload.id,
+            title: event.payload.title,
+            description: event.payload.description,
+        }
+    });
+    yield put({ type: "GET_MOVIES" });
+
+}
+
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
