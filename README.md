@@ -1,4 +1,4 @@
-# Media Database
+# Movie Database
 
 ## Description
 
