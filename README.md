@@ -26,7 +26,6 @@ This is a database template for any media related items. It uses a simple flexib
 ## Installation
 
 - Download from GitHub
-- https://github.com/brgeen/movie-sagas
 - Create the tables and insert the data in the databse.sql file
 - npm install
 - open your terminal
